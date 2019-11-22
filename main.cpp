@@ -1,71 +1,78 @@
 #include <iostream>
-#include <stdlib.h>
+
 
 using namespace std;
 
-int arrSize;
+class Product
+{
+public:
+    void getproduct (void);
+    void displayproduct (void);
+    Product();
 
-int input_ArrSize();
-void input_Array(string[], string [], int[], int[], string[], string[]);
-void display_Array(string [], string [], int[], int[], string[], string[]);
+
+
+private:
+    int ProductID;
+    string ProductionName;
+    int Price;
+    string Manufacture;
+    string ExDate;
+
+
+};
+
+Product::Product(void)
+{
+    cout<<"\t\t\tProducts:\n"<<endl;
+}
+
+void Product::getproduct(void)
+{
+    string ans;
+    string choice;
+    cout<<"Do you want to add more products:Yes/No?"<<endl;
+    cin>>ans;
+
+    if(choice=="Y"||"y"){
+    cout<<"\n***************************\n";
+    cout<<"ProductID:";
+    cin>>ProductID;
+    cout<<"Product Name:";
+    cin>>ProductionName;
+    cout<<"Price:";
+    cin>>Price;
+    cout<<"Manufacture:";
+    cin>>Manufacture;
+    cout<<"Expiration Date:";
+    cin>> ExDate;
+    }
+
+
+}
+
+void Product::displayproduct(void)
+{
+
+    cout<<"\n***************************\n";
+    cout<<"\t\t\tProducts:\n"<<endl;
+    cout<<"ProductID:"<<ProductID<<endl;
+    cout<<"Product Name:"<<ProductionName<<endl;
+    cout<<"Price:"<<Price<<endl;
+    cout<<"Manufacture:"<<Manufacture<<endl;
+    cout<<"Expiration Date:"<<ExDate<<endl;
+
+
+
+}
+
 
 int main()
 {
-   string fname [5], lname [5], email [5], address [5];
-   int age [5], contact[5];
-   input_Array(fname, lname, age, contact, email, address);
-   display_Array(fname, lname, age, contact, email, address);
+
+    Product Product ;
+    Product.getproduct();
+    Product.displayproduct();
 
     return 0;
 }
-
-int input_ArrSize (){
-
-    cout << "Enter array size: ";
-    cin >> arrSize;
-
-    return arrSize;
-}
-
-void input_Array(string fname[], string lname[], int age [], int contact[], string email[], string address[]){
-
-input_ArrSize();
-    for (int i= 0; i<=arrSize-1; i++) {
-        cout << "Enter Firstname: " <<i+1<<" : ";
-        cin >> fname [i];
-    }
-
-    for (int i= 0; i<=arrSize-1; i++) {
-        cout << "Enter Lastname: " <<i+1<<" : ";
-        cin >> lname [i];
-    }
-    for (int i= 0; i<=arrSize-1; i++) {
-        cout << "Enter age: " <<i+1<<" : ";
-        cin >> age [i];
-    }
-
-    for (int i= 0; i<=arrSize-1; i++) {
-        cout << "Enter contact number: " <<i+1<<" : ";
-        cin >> contact [i];
-    }
-
-    for (int i= 0; i<=arrSize-1; i++) {
-        cout << "Enter email: " <<i+1<<" : ";
-        cin >> email[i];
-    }
-
-    for (int i= 0; i<=arrSize-1; i++) {
-        cout << "Enter address: " <<i+1<<" : ";
-        cin >> address[i];
-    }
-}
-
-void display_Array(string fname[], string lname [], int age[], int contact[], string email[], string address[]){
-
-system ("CLS");
-    cout << "| Firstname | Lastname | Age | Contacts | Email | Address"<< endl;
-    for (int i= 0; i<=arrSize-1; i++) {
-    cout << "\n  " << fname [i]<< "       |    " << lname[i] << "       |    " << age[i] << "       |    " << contact[i] << "       |    " << email[i]<< "       |    " << address[i] <<endl;
-
-    }
- }
